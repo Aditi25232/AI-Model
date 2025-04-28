@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Waste Categorization</title>
+
+    <!-- Load TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+
+    <!-- Load Teachable Machine Image Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+
+    <!-- Link your JS file -->
+    <script defer src="Untitled-1.js"></script>
+</head>
+<body>
+    <h1>Waste Categorization</h1>
+
+    <input type="file" id="imageUpload" accept="image/*">
+    <br><br>
+
+    <img id="uploadedImage" width="300" style="display:none;">
+    <h2 id="result"></h2>
+</body>
+</html>
