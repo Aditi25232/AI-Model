@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Waste Categorization</title>
+
+    <!-- Load TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+
+    <!-- Load Teachable Machine Image Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+
+    <!-- Link your JS file -->
+    <script defer src="Untitled-1.js"></script>
+
+    <style>
+        video, canvas {
+            display: block;
+            margin: 10px auto;
+            max-width: 90%;
+        }
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Waste Categorization</h1>
+
+    <!-- Image upload -->
+    <input type="file" id="imageUpload" accept="image/*">
+    <br><br>
+
+    <img id="uploadedImage" width="300" style="display:none;">
+    <h2 id="result"></h2>
+
+    <hr>
+
+    <!-- Webcam Section -->
+    <h2>Or use Webcam:</h2>
+    <video id="video" autoplay playsinline width="300" height="250"></video>
+    <br>
+    <button id="capture">Capture from Webcam</button>
+    <canvas id="canvas" width="300" height="250" style="display:none;"></canvas>
+
+    <!-- JavaScript for Webcam Access -->
+    <script>
+        // Webcam elements
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const context = canvas.getContext('2d');
+        const captureButton = document.getElementById('capture');
+        const uploadedImage = document.getElementById('uploadedImage');
+
+        // Start webcam stream
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                video.srcObject = stream;
+            })
+            .catch(err => {
+                console.error("Error accessing webcam:", err);
+            });
+
+        // Capture image from webcam
+        captureButton.addEventListener('click', () => {
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            // Show the captured image
+            const dataURL = canvas.toDataURL('image/png');
+            uploadedImage.src = dataURL;
+            uploadedImage.style.display = 'block';
+            // You can now use 'uploadedImage' just like the uploaded file!
+        });
+
+        // Image upload (already in your code)
+        document.getElementById('imageUpload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    uploadedImage.src = e.target.result;
+                    uploadedImage.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
