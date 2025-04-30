@@ -2,24 +2,88 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Waste Categorization</title>
+    <title>Smart Waste Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Load TensorFlow.js -->
+    <!-- Teachable Machine & TensorFlow -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
-
-    <!-- Load Teachable Machine Image Library -->
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
 
-    <!-- Link your JS file -->
+    <!-- Styles -->
+    <link rel="stylesheet" href="Styles.css">
+
+    <!-- JS -->
     <script defer src="Untitled-1.js"></script>
+
+    <!-- JS for AI -->
+    <script src="auth.js"></script>
 </head>
 <body>
-    <h1>Waste Categorization</h1>
+    <div class="container">
+        <div id="logo">Smart Waste Management</div>
 
-    <input type="file" id="imageUpload" accept="image/*">
-    <br><br>
+        <div class="nav-links">
+            <div class="dropdown">
+                <a href="#" class="active">Home</a>
+            </div>
+        
+            <div class="dropdown">
+                <div class="dropdown">
+                    <a href="#">Garbage Info</a>
+                    <div class="dropdown-content">
+                        <a href="WasteCollected.html">Waste Collected</a>
+                        <a href="ByCategory.html">By Category</a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="dropdown">
+                <a href="#">Truck Tracking</a>
+                <div class="dropdown-content">
+                    <a href="activeTrucks.html">Active Trucks</a>
+                    <a href="truckRoute.html">Truck Route</a>
+                    <a href="truckDetails.html">Truck Details</a>
+                </div>
+            </div>
+        
+            <div class="dropdown">
+                <a href="#">Waste Analytics</a>
+                <div class="dropdown-content">
+                    <a href="#">Area Wise</a>
+                    <a href="#">Pie Chart</a>
+                </div>
+            </div>
+        
+            <div class="dropdown">
+                <a href="#">Contact Us</a>
+                <div class="dropdown-content">
+                    <a href="#">Mobile No.</a>
+                    <a href="#">E-mail</a>
+                </div>
+            </div>
+        </div>
 
-    <img id="uploadedImage" width="300" style="display:none;">
-    <h2 id="result"></h2>
+        <h1>Waste Management Dashboard</h1>
+
+        <div class="description">
+            Upload or capture images of waste to automatically categorize them using AI.
+        </div>
+
+        <!-- AI Classification Section -->
+        <div class="ai-generator">
+            <h2>Waste Image Classifier</h2>
+            <input type="file" id="imageUpload" accept="image/*">
+            <br><br>
+            <img id="uploadedImage" width="300" style="display:none;">
+            <h2 id="result"></h2>
+            <button id="showWebcam">Or use Webcam</button>
+
+            <div id="webcamSection" style="display: none; margin-top: 20px;">
+                <video id="video" autoplay playsinline width="300" height="250"></video><br>
+                <button id="capture">Capture from Webcam</button>
+                <canvas id="canvas" width="300" height="250" style="display:none;"></canvas>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
