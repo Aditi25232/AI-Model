@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Waste by Category</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Make sure this is here -->
 </head>
 <body>
     <div class="container">
@@ -12,14 +13,10 @@
 
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="waste-collected.html">Garbage Info</a>
+            <a href="WasteCollected.html">Garbage Info</a>
             <a href="#">Truck Tracking</a>
             <a href="#">Waste Analytics</a>
             <a href="#">Contact Us</a>
-        </div>
-
-        <div class="breadcrumb">
-            <span>Home</span> > <span>Garbage Info</span> > <span>By Category</span>
         </div>
 
         <h1>Waste Breakdown by Category</h1>
@@ -31,29 +28,34 @@
         <div class="waste-stats">
             <div class="stat-card">
                 <h3>Organic Waste</h3>
-                <div class="stat-value">67 tons</div>
+                <div class="stat-value" id="organicWaste">67</div>
             </div>
             <div class="stat-card">
                 <h3>Plastic Waste</h3>
-                <div class="stat-value">33 tons</div>
+                <div class="stat-value" id="plasticWaste">33</div>
             </div>
             <div class="stat-card">
                 <h3>Metal Waste</h3>
-                <div class="stat-value">30 tons</div>
+                <div class="stat-value" id="metalWaste">30</div>
             </div>
             <div class="stat-card">
                 <h3>Glass Waste</h3>
-                <div class="stat-value">10 tons</div>
+                <div class="stat-value" id="glassWaste">10</div>
             </div>
             <div class="stat-card">
                 <h3>Biomedical Waste</h3>
-                <div class="stat-value">50 tons</div>
+                <div class="stat-value" id="biomedicalWaste">50</div>
             </div>
             <div class="stat-card">
                 <h3>E-Waste</h3>
-                <div class="stat-value">10 tons</div>
+                <div class="stat-value" id="ewaste">10</div>
             </div>
         </div>
+
+        <canvas id="wastePieChart" width="400" height="400"></canvas> <!-- Pie chart element -->
     </div>
+
+    <!-- Link to the pie chart logic -->
+    <script src="Untitled-1.js"></script>
 </body>
 </html>

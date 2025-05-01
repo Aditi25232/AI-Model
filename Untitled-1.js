@@ -79,12 +79,13 @@ document.getElementById("capture").addEventListener("click", async () => {
     if (!localStorage.getItem("user")) {
         window.location.href = "signin.html";
     }
-    
-    window.onload = function () {
-        const user = localStorage.getItem("user");
-        if (user) {
-            document.getElementById("logo").innerText = "Welcome, " + user;
-        }
-    };
-    
 });
+
+// On window load
+window.onload = function () {
+    // User greeting
+    const user = localStorage.getItem("user");
+    if (user) {
+        document.getElementById("logo").innerText = "Welcome, " + user;
+    }
+};

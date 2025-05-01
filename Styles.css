@@ -1,5 +1,4 @@
-CSS
-
+/* Global reset and basic styles */
 * {
     margin: 0;
     padding: 0;
@@ -53,15 +52,18 @@ body {
     background-color: #4CAF50;
     color: #fff;
 }
+
 h1 {
     font-size: 36px;
     margin-bottom: 20px;
     color: #ffffff;
     text-align: center;
 }
-h2,button {
+
+h2, button {
     text-align: center;
 }
+
 .description {
     max-width: 800px;
     margin: 0 auto 40px;
@@ -214,11 +216,12 @@ h2,button {
     .dashboard {
         grid-template-columns: 1fr;
     }
-    
+
     .waste-map {
         grid-column: span 1;
     }
 }
+
 /* Center the 'Show Webcam' button */
 #showWebcam {
     display: block;
@@ -256,6 +259,7 @@ h2,button {
 #capture:hover {
     background-color: #3e8e41;
 }
+
 #imageUpload {
     display: block;
     margin: 20px auto;
@@ -267,6 +271,7 @@ h2,button {
     border-radius: 8px;
     cursor: pointer;
 }
+
 /* Dropdown container */
 .dropdown {
     position: relative;
@@ -304,6 +309,7 @@ h2,button {
     background-color: #4CAF50;
     color: white;
 }
+
 #Maps {
     display: flex;
     justify-content: center;
@@ -319,4 +325,63 @@ iframe {
     margin-top: -1200px;
 }
 
+/* Pie chart specific styles */
+body {
+    background-color: #000;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding: 30px;
+}
 
+.chart-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+h2 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.pie-chart {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin: 0 auto 30px;
+}
+
+.legend {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px 20px;
+    justify-content: center;
+}
+
+.legend li {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+
+.box {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+/* Theme-colored category boxes */
+.organic { background-color: #4CAF50; }
+.plastic { background-color: #FF9800; }
+.metal { background-color: #9C27B0; }
+.glass { background-color: #03A9F4; }
+.biomedical { background-color: #f44336; }
+.ewaste { background-color: #795548; }
